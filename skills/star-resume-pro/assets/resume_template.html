@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{NAME}} - {{TARGET_POSITION}}</title>
+    <style>
+        /* ============================================
+           STAR-Resume-Pro Modern Template v1.0
+           2025-2026 流行双栏侧边栏布局
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #333;
+            background: #f5f5f5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .resume-container {
+            width: 210mm;
+            min-height: 297mm;
+            max-height: 297mm;
+            margin: 0 auto;
+            background: #fff;
+            display: flex;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        /* ---- 左侧边栏 ---- */
+        .sidebar {
+            width: 32%;
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar .profile-section {
+            text-align: center;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .sidebar .profile-section .name {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+
+        .sidebar .profile-section .target-position {
+            font-size: 13px;
+            color: #3498db;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .sidebar .section-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #3498db;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .sidebar .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar .contact-list li {
+            font-size: 11.5px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.4;
+            word-break: break-all;
+        }
+
+        .sidebar .contact-list .icon {
+            flex-shrink: 0;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            margin-top: 1px;
+        }
+
+        /* 技能标签 */
+        .skill-category {
+            margin-bottom: 10px;
+        }
+
+        .skill-category-title {
+            font-size: 11px;
+            color: #95a5a6;
+            font-weight: 600;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .skill-tag {
+            background: rgba(52, 152, 219, 0.15);
+            color: #85c1e9;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 10.5px;
+            font-weight: 500;
+        }
+
+        /* 教育信息 */
+        .edu-item {
+            margin-bottom: 10px;
+        }
+
+        .edu-item .school {
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .edu-item .major {
+            font-size: 11px;
+            color: #bdc3c7;
+            margin-top: 2px;
+        }
+
+        .edu-item .period {
+            font-size: 10.5px;
+            color: #7f8c8d;
+            margin-top: 2px;
+        }
+
+        /* ---- 右侧主内容 ---- */
+        .main-content {
+            width: 68%;
+            padding: 28px 28px 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .main-content .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #3498db;
+            margin-bottom: 8px;
+        }
+
+        /* 专业摘要 */
+        .summary-text {
+            font-size: 12px;
+            line-height: 1.65;
+            color: #555;
+        }
+
+        /* 经历条目 */
+        .experience-item {
+            margin-bottom: 12px;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .experience-header .company-role {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .experience-header .company-role .company {
+            color: #2c3e50;
+        }
+
+        .experience-header .company-role .role {
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .experience-header .period {
+            font-size: 11px;
+            color: #7f8c8d;
+            white-space: nowrap;
+            margin-left: 12px;
+            flex-shrink: 0;
+        }
+
+        .experience-desc {
+            font-size: 11.5px;
+            color: #666;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .experience-bullets {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-bullets li {
+            font-size: 11.5px;
+            line-height: 1.55;
+            color: #444;
+            padding-left: 14px;
+            position: relative;
+            margin-bottom: 3px;
+        }
+
+        .experience-bullets li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-size: 11px;
+        }
+
+        .experience-bullets li strong {
+            color: #2c3e50;
+        }
+
+        .highlight {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        .metric {
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        /* 打印适配 */
+        @media print {
+            body {
+                background: none;
+            }
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                min-height: auto;
+                max-height: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- ===== 左侧边栏 ===== -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="name">{{NAME}}</div>
+                <div class="target-position">{{TARGET_POSITION}}</div>
+            </div>
+
+            <!-- 联系信息 -->
+            <div class="sidebar-section">
+                <div class="section-title">联系方式</div>
+                <ul class="contact-list">
+                    <li><span class="icon">📱</span> {{PHONE}}</li>
+                    <li><span class="icon">✉️</span> {{EMAIL}}</li>
+                    <!-- {{CONTACT_EXTRA}} -->
+                    <!-- 可选: <li><span class="icon">🔗</span> {{HOMEPAGE}}</li> -->
+                    <!-- 可选: <li><span class="icon">📍</span> {{CITY}}</li> -->
+                </ul>
+            </div>
+
+            <!-- 技能 -->
+            <div class="sidebar-section">
+                <div class="section-title">核心技能</div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">{{SKILL_CATEGORY_1}}</div>
+                    <div class="skill-tags">
+                        <!-- {{SKILL_TAGS_1}} -->
+                        <span class="skill-tag">技能1</span>
+                        <span class="skill-tag">技能2</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="skill-category-title">{{SKILL_CATEGORY_2}}</div>
+                    <div class="skill-tags">
+                        <!-- {{SKILL_TAGS_2}} -->
+                        <span class="skill-tag">工具1</span>
+                        <span class="skill-tag">工具2</span>
+                    </div>
+                </div>
+
+                <!-- {{SKILL_CATEGORIES_EXTRA}} -->
+            </div>
+
+            <!-- 教育背景 -->
+            <div class="sidebar-section">
+                <div class="section-title">教育背景</div>
+
+                <div class="edu-item">
+                    <div class="school">{{SCHOOL_1}}</div>
+                    <div class="major">{{MAJOR_1}} · {{DEGREE_1}}</div>
+                    <div class="period">{{EDU_PERIOD_1}}</div>
+                </div>
+
+                <!-- {{EDUCATION_EXTRA}} -->
+            </div>
+
+            <!-- 证书 / 语言 (可选) -->
+            <!-- {{CERTIFICATIONS_SECTION}} -->
+        </aside>
+
+        <!-- ===== 右侧主内容 ===== -->
+        <main class="main-content">
+            <!-- 专业摘要 -->
+            <section>
+                <div class="section-title">专业摘要</div>
+                <p class="summary-text">
+                    {{PROFESSIONAL_SUMMARY}}
+                </p>
+            </section>
+
+            <!-- 工作经历 -->
+            <section>
+                <div class="section-title">工作经历</div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">
+                            <span class="company">{{COMPANY_1}}</span> · <span class="role">{{ROLE_1}}</span>
+                        </div>
+                        <span class="period">{{WORK_PERIOD_1}}</span>
+                    </div>
+                    <ul class="experience-bullets">
+                        <!-- STAR 法则优化后的工作内容，每条包含量化数据 -->
+                        <li>{{STAR_BULLET_1_1}}</li>
+                        <li>{{STAR_BULLET_1_2}}</li>
+                        <li>{{STAR_BULLET_1_3}}</li>
+                    </ul>
+                </div>
+
+                <!-- {{WORK_EXPERIENCE_EXTRA}} -->
+            </section>
+
+            <!-- 项目经历 -->
+            <section>
+                <div class="section-title">项目经历</div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="company-role">
+                            <span class="company">{{PROJECT_1}}</span> · <span class="role">{{PROJECT_ROLE_1}}</span>
+                        </div>
+                        <span class="period">{{PROJECT_PERIOD_1}}</span>
+                    </div>
+                    <p class="experience-desc">{{PROJECT_DESC_1}}</p>
+                    <ul class="experience-bullets">
+                        <!-- STAR 法则优化后的项目成果 -->
+                        <li>{{STAR_PROJECT_1_1}}</li>
+                        <li>{{STAR_PROJECT_1_2}}</li>
+                        <li>{{STAR_PROJECT_1_3}}</li>
+                    </ul>
+                </div>
+
+                <!-- {{PROJECT_EXPERIENCE_EXTRA}} -->
+            </section>
+        </main>
+    </div>
+</body>
+</html>
