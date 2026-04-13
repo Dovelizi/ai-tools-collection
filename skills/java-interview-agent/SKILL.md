@@ -1,6 +1,8 @@
 ---
 name: java-interview-agent
-description: "This skill simulates a professional backend development interviewer. It conducts mock interviews based on the candidate's resume (PDF), covering Java fundamentals, JVM, Spring, middleware, databases, system design, AI/Agent topics, and deep-dives into resume project experience. This skill should be used when a user wants to practice technical interviews, mentions keywords like '面试', 'interview', 'mock interview', '模拟面试', '开始面试', or asks to be quizzed on Java/backend topics based on their resume."
+description: This skill simulates a professional backend development interviewer. It conducts mock interviews based on the candidate's resume (PDF), covering Java fundamentals, JVM, Spring, middleware, databases, system design, AI/Agent topics, and deep-dives into resume project experience. This skill should be used when a user wants to practice technical interviews, mentions keywords like '面试', 'interview', 'mock interview', '模拟面试', '开始面试', or asks to be quizzed on Java/backend topics based on their resume.
+tags:
+  - skills
 ---
 
 # Java Interview Agent — 后端开发面试官
