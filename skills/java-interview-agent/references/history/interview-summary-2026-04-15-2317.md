@@ -112,7 +112,7 @@ try {
 **Spring Boot 2.x+ 默认行为**：`spring.aop.proxy-target-class=true`，默认使用 **CGLIB**，不管有没有实现接口。
 
 **AOP 典型应用场景（横切关注点）：**
-1. **事务管理**：@Transactional
+1. **事务管理**：@Transactional 
 2. **日志记录**：方法调用前后打印入参出参
 3. **权限校验**：自定义 @RequireLogin 注解
 4. **接口耗时统计**：@Around 记录方法执行时间
