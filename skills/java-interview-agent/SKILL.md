@@ -393,7 +393,30 @@ cp -r skills/java-interview-agent/references/learning/ ~/.codebuddy/skills/java-
 5. 将文件写入 `interview-records/` 目录
 6. **同步写入 Skill 的 `references/history/` 目录**（见下方"面试历史记录管理"）
 7. 生成完成后告知用户文件路径，并提示可以随时查阅复习
-8. **触发学习计划更新提示**：总结生成后，主动提示用户"面试总结已生成。建议调用 `interview-study-planner` 更新学习计划（输入'更新学习计划'即可）"
+8. **自动触发学习计划更新**（见下方"阶段五-B"）
+
+### 阶段五-B：自动更新学习计划（面试结束后必须执行）
+
+面试总结报告生成并同步到历史记录后，**必须自动执行**学习计划更新，不再需要用户手动触发。
+
+**执行方式**：直接调用 `interview-study-planner` Skill（通过 `use_skill` 工具加载），传入以下上下文：
+- 本次面试总结文件路径
+- 本次面试各维度评分
+- 本次面试暴露的新薄弱项
+
+**如果 `interview-study-planner` Skill 不可用**（如未安装），则按以下规则手动更新学习计划：
+
+1. 读取 `references/learning/study-plan.md` 现有学习计划
+2. 根据本次面试结果更新：
+   - **新增薄弱项**：本次面试中评价为 ⚠️ 或 ❌ 且不在现有计划中的知识点 → 按优先级插入
+   - **状态更新**：已有知识点在本次面试中表现提升（如 ❌→⚠️ 或 ⚠️→✅）→ 更新状态和评语
+   - **已掌握归档**：连续 2 次面试评价为 ✅ 的知识点 → 移入"已掌握"区域
+   - **优先级调整**：连续多次答不好的知识点 → 提升为 🔴 P0
+3. 更新面试趋势总览表（新增本次面试的评分列）
+4. 将更新后的学习计划写入：
+   - `references/learning/study-plan.md`（Skill 内部副本）
+   - `interview-records/study-plan.md`（用户工作目录副本）
+5. 告知用户学习计划已自动更新，展示关键变更摘要
 
 ### 阶段六：面试历史记录管理
 
@@ -451,9 +474,10 @@ cp -r skills/java-interview-agent/references/learning/ ~/.codebuddy/skills/java-
 - [ ] Skill 的 `references/history/` 目录下是否已同步写入同名的面试总结文件
 - [ ] 文件内容与用户工作目录下的一致
 
-**3. 学习计划更新检查：**
-- [ ] 提示用户是否需要更新学习计划（调用 `interview-study-planner`）
-- [ ] 如果用户确认更新，检查 `interview-records/study-plan.md` 和 `references/learning/study-plan.md` 是否已更新
+**3. 学习计划自动更新检查：**
+- [ ] 阶段五-B 是否已自动执行学习计划更新
+- [ ] `interview-records/study-plan.md` 和 `references/learning/study-plan.md` 是否已更新
+- [ ] 学习计划中是否已包含本次面试暴露的新薄弱项
 
 #### 步骤二：GitHub 仓库同步
 
@@ -544,4 +568,4 @@ git push origin main
 4. **后续扩展**：随着面试暴露更多薄弱项，会持续在 `learning/` 下新增知识模块文件
 
 ### 关联 Skill
-- **interview-study-planner**：面试后学习计划智能更新器。每次面试结束后建议调用，自动分析薄弱环节并更新学习计划。本 Skill 在准备题目时会读取其生成的 `study-plan.md`，优先验证候选人是否已掌握学习计划中的待强化项。
+- **interview-study-planner**：面试后学习计划智能更新器。**每次面试结束后在阶段五-B 中自动调用**，分析本次面试暴露的薄弱环节并更新学习计划。如果该 Skill 不可用，则由 java-interview-agent 内置逻辑手动更新。本 Skill 在准备题目时会读取其生成的 `study-plan.md`，优先验证候选人是否已掌握学习计划中的待强化项。
