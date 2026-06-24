@@ -14,6 +14,10 @@ A collection of AI Agent Skills, MCP servers, and related tools.
 
 ## Skills
 
+### remio
+
+Remio agent skill. Connects agents to the Remio desktop client's local-first personal knowledge base so they can search notes, ask RAG questions, and parse supported files through the Remio CLI. Requires the Remio desktop app to be installed and running.
+
 ### java-interview-agent
 
 专业的 Java 后端开发面试模拟器。基于候选人简历（PDF）进行针对性技术面试，覆盖：
