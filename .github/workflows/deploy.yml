@@ -3,9 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-    paths:
-      - 'ai-share-website/**'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
